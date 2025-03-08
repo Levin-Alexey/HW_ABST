@@ -32,7 +32,10 @@ public class CreditAccount extends Account {
             return false;
         }
         balance -= amount;
-        account.add(amount);
+        if (!account.add(amount)) {
+            balance += amount;
+            return false;
+        }
         return true;
     }
 
